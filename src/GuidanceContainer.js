@@ -5,9 +5,11 @@ import GuidanceItem from './GuidanceItem';
 export default class GuidanceContainer extends React.Component {
 
     renderGuidanceItem = () => {
+        let copyWellnessFactors = [...wellnessFactors]
+copyWellnessFactors.sort((factor1, factor2) => factor2.stars - factor1.stars)
         return (
             <>
-            {wellnessFactors.map((factor, index) => 
+            {copyWellnessFactors.map((factor, index) => 
                     <GuidanceItem
                         key={index}
                         id={factor.id}
@@ -20,8 +22,8 @@ export default class GuidanceContainer extends React.Component {
                 )}
             </>
         )
-
     }
+
 
     renderItemInfo = () => {
         return (
